@@ -15,3 +15,10 @@
 * **/info** – Displays arbitrary application info. not sensitive by default
 * **/metrics** – Shows ‘metrics’ information for the current application. it’s also sensitive by default
 * **/trace** – Displays trace information (by default the last few HTTP requests)
+
+## Swagger UI
+
+> Swagger UI is a built-in solution which makes user interaction with the Swagger-generated API documentation much easier.
+
+* **/v2/api-docs** – Response with a large number of key-value pairs, which is not very human-readable.
+* **/swagger-ui.html** – Swagger provides Swagger UI for this purpose.
