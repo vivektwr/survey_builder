@@ -1,23 +1,22 @@
 package com.synerzip.survey_builder.models;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "servey_type")
-public class ServeyType {
+@Document(collection = "survey_type")
+public class SurveyType {
 
 	@Id
-	private ObjectId typeId;
+	public String id;
 
 	private String type;
 
-	public ObjectId getTypeId() {
-		return typeId;
+	public String getId() {
+		return id;
 	}
 
-	public void setTypeId(ObjectId typeId) {
-		this.typeId = typeId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getType() {
@@ -27,7 +26,5 @@ public class ServeyType {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	
 
 }
