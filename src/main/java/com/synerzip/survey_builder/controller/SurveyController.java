@@ -33,13 +33,13 @@ public class SurveyController {
         return surveyService.create(survey);
     }
 
-    @GetMapping("/survey/{id}")
+    @PutMapping("/survey/{id}")
     public Survey update(@RequestBody Survey survey, @PathVariable("id") String id) {
         return surveyService.update(survey, id);
     }
 
 
-    @GetMapping("/survey/{id}")
+    @DeleteMapping("/survey/{id}")
     public void delete(@PathVariable("id") String id) {
         surveyService.delete(id);
     }
