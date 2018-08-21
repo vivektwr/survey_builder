@@ -1,5 +1,6 @@
 package com.synerzip.survey_builder.controller;
 
+import com.synerzip.survey_builder.exceptions.SurveyNotFoundException;
 import com.synerzip.survey_builder.models.Survey;
 import com.synerzip.survey_builder.service.SurveyService;
 import org.slf4j.Logger;
@@ -25,7 +26,10 @@ public class SurveyController {
 
     @GetMapping("/survey/{id}")
     public Optional<Survey> findOne(@PathVariable("id") String id) {
-        return surveyService.findOne(id);
+        Optional<Survey> survey = surveyService.findOne(id);
+        if (!survey.isPresent())
+            throw new SurveyNotFoundException("Survey Id " + id);
+        return survey;
     }
 
     @PostMapping("/survey")
@@ -37,7 +41,6 @@ public class SurveyController {
     public Survey update(@RequestBody Survey survey, @PathVariable("id") String id) {
         return surveyService.update(survey, id);
     }
-
 
     @DeleteMapping("/survey/{id}")
     public void delete(@PathVariable("id") String id) {
